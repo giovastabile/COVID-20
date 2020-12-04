@@ -9,10 +9,10 @@ toplot = "nuovi_positivi"
 
 
 for i, regione in enumerate(regioni):
-	fig, ax = subplots()
-	a = df_regions.loc[df_regions['denominazione_regione'] == regione]
-	a.plot(kind='line',x='data',y=toplot,color=colori[i], ax=ax)
-	ax.legend([toplot + " " +regione]);
+    fig, ax = subplots()
+    a = df_regions.loc[df_regions['denominazione_regione'] == regione]
+    a.rolling(7).mean().plot(kind='line',y=toplot,color=colori[i], ax=ax)
+    ax.legend([toplot + " " +regione]);
 
 
 
